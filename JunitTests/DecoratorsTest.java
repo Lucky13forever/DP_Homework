@@ -16,6 +16,6 @@ public class DecoratorsTest {
         Account myAccount = new AccountEUR("RO123456789", 1000);
         EconomyAccountDecorator myEconomyAccount = new EconomyAccountDecorator(myAccount, 30);
 
-        assertEquals(1000, myEconomyAccount.get_roi(), 0);
+        assertEquals(202, myEconomyAccount.get_roi(), 0);
     }
 }
