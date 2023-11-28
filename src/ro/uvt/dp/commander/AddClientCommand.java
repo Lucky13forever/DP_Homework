@@ -1,5 +1,6 @@
-package ro.uvt.dp.bank;
+package ro.uvt.dp.commander;
 
+import ro.uvt.dp.bank.Bank;
 import ro.uvt.dp.client.Client;
 
 public class AddClientCommand implements Command{

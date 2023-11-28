@@ -1,4 +1,4 @@
-package ro.uvt.dp.bank;
+package ro.uvt.dp.commander;
 
 import ro.uvt.dp.exceptions.ClientNotFound;
 

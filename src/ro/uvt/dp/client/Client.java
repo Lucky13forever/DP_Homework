@@ -1,6 +1,7 @@
 package ro.uvt.dp.client;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import ro.uvt.dp.account.*;
 import ro.uvt.dp.account.Account.TYPE;

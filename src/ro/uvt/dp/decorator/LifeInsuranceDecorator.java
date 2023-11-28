@@ -1,5 +1,6 @@
-package ro.uvt.dp.account;
+package ro.uvt.dp.decorator;
 
+import ro.uvt.dp.account.Account;
 import ro.uvt.dp.exceptions.AmountException;
 
 public class LifeInsuranceDecorator extends AccountDecorator {

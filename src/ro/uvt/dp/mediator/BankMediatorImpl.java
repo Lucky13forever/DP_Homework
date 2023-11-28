@@ -17,11 +17,13 @@ public class BankMediatorImpl implements BankingMediator {
         // Logic to send the message from sender to receiver
         if (receiver != null) {
             receiver.receive(message, sender);
+            receiver.addMessage(message);
         } else {
             // Broadcast to all colleagues except the sender
             for (Colleague colleague : colleagues) {
                 if (colleague != sender) {
                     colleague.receive(message, sender);
+                    colleague.addMessage(message);
                 }
             }
         }

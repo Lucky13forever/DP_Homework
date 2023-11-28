@@ -1,11 +1,15 @@
 package ro.uvt.dp.mediator;
 
-import ro.uvt.dp.client.Client;
+import ro.uvt.dp.bank.Bank;
 
 public class BankColleague extends Colleague {
 
-    public BankColleague(BankingMediator mediator, Client client) {
-        super(mediator, client);
+    private Bank bank;
+
+    public BankColleague(BankingMediator mediator, Bank bank) {
+        super(mediator);
+        mediator.addColleague(this);
+        this.bank = bank;
     }
 
     @Override
@@ -16,6 +20,10 @@ public class BankColleague extends Colleague {
     @Override
     public void receive(String message, Colleague sender) {
         // Bank receives a message
-        System.out.println("Bank " + client.getName() + " received a message: " + message + " from " + sender.getName());
+        System.out.println("Bank " + bank.getName() + " received a message: " + message + " from " + sender.getName());
+    }
+
+    public String getName(){
+        return bank.getName();
     }
 }
