@@ -48,4 +48,7 @@ public class Bank {
 		return "Bank [code=" + bankCode + ", clients=" + clients + "]";
 	}
 
+	public String getName() {
+		return bankCode;
+	}
 }
