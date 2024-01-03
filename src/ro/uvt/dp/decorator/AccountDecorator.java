@@ -7,7 +7,7 @@ public abstract class AccountDecorator extends Account {
     protected Account decoratedAccount;
 
     public AccountDecorator(Account account) throws AmountException {
-        super(account.getAccountNumber(), account.getAmount());
+        super((account));
         this.decoratedAccount = account;
     }
 

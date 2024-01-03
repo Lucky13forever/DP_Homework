@@ -12,6 +12,8 @@ public class Client {
 	private String name;
 	private String address;
 
+	private int id;
+
 	private String dateOfBirth;
 	private ArrayList<Account> accounts = new ArrayList<>();
 
@@ -29,13 +31,43 @@ public class Client {
 		return dateOfBirth;
 	}
 
+	public void setAddress(String s) {
+		this.address = s;
+	}
+
+	public void setBirth(String s) {
+		this.dateOfBirth = s;
+	}
+
 	public static class Builder {
 		private String name;
 		private String address;
 
+		private int id;
+
 		private AccountFactory accountFactory;
 		private String dateOfBirth;  // Additional client information
 		private ArrayList<Account> accounts = new ArrayList<>();
+
+		public Builder()
+		{
+
+		}
+
+		public Builder name(String name){
+			this.name = name;
+			return this;
+		}
+
+		public Builder id(int id){
+			this.id = id;
+			return this;
+		}
+
+		public Builder address(String address){
+			this.address = address;
+			return this;
+		}
 
 		public Builder(String name, String address) {
 			this.name = name;
@@ -68,6 +100,7 @@ public class Client {
 		this.address = builder.address;
 		this.dateOfBirth = builder.dateOfBirth;
 		this.accounts = builder.accounts;
+		this.id = builder.id;
 	}
 
 	public void addAccount(TYPE type, String accountNumber, double amount) throws AmountException {
@@ -77,6 +110,15 @@ public class Client {
 		else if (type == Account.TYPE.RON)
 			c = new AccountRON(accountNumber, amount);
 		accounts.add(c);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void addAccount(Account account) throws AmountException {
+		accounts.add(account);
+		account.setClient_id(id);
 	}
 
 	public Account getAccount(String accountCode) {

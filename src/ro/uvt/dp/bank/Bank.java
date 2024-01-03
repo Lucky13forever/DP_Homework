@@ -1,5 +1,6 @@
 package ro.uvt.dp.bank;
 
+import ro.uvt.dp.account.Account;
 import ro.uvt.dp.client.Client;
 import ro.uvt.dp.exceptions.ClientNotFound;
 
@@ -10,12 +11,25 @@ public class Bank {
 	private ArrayList<Client> clients = new ArrayList<>();
 	private String bankCode = null;
 
+	private int id;
+
 	public Bank(String bankCode) {
 		this.bankCode = bankCode;
 	}
 
 	public void addClient(Client c) {
 		clients.add(c);
+		for (Account account : c.getAccounts()) {
+			account.setBank_id(id);
+		}
+	}
+
+	public void setID(int id) {
+		this.id = id;
+	}
+
+	public int getID() {
+		return id;
 	}
 
 	
