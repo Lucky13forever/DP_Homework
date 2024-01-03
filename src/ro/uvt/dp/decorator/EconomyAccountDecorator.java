@@ -9,6 +9,7 @@ public class EconomyAccountDecorator extends AccountDecorator {
     private double interestRate;
     public EconomyAccountDecorator(Account account, int months) throws AmountException {
         super(account);
+        this.type = "Economy";
         this.months = months;
         // 1 month 0.2% , 3 months - 1%, 6 months - 3%, 12 months - 7%
         int for_12 = months / 12;
@@ -37,9 +38,33 @@ public class EconomyAccountDecorator extends AccountDecorator {
 
     }
 
+    public int getMonths() {
+        return months;
+    }
+
+    public int getInterestRate() {
+        return (int) interestRate;
+    }
+
+    public void setMonths(int months){
+        this.months = months;
+    }
+
+    public String getType(){
+        return type;
+    }
+
     public int get_roi() {
         // Calculate the return on investment
         return (int) (getTotalAmount() * (interestRate / 100));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " + EconomyAccountDecorator{" +
+                "months=" + months +
+                ", interestRate=" + interestRate +
+                '}';
     }
 
 }

@@ -10,6 +10,7 @@ public class LifeInsuranceDecorator extends AccountDecorator {
     public LifeInsuranceDecorator(Account account, double insuranceFee) throws AmountException {
         super(account);
         this.insuranceFee = insuranceFee;
+        this.type = "Insurance";
     }
 
     @Override
@@ -27,6 +28,26 @@ public class LifeInsuranceDecorator extends AccountDecorator {
     @Override
     public void transfer(Account c, double s) throws AmountException {
 
+    }
+
+    public void setInsuranceFee(double insuranceFee) {
+        this.insuranceFee = insuranceFee;
+    }
+
+    public double getInsuranceFee() {
+        return insuranceFee;
+    }
+
+    @Override
+    public String getType(){
+        return type;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " + LifeInsuranceDecorator{" +
+                "insuranceFee=" + insuranceFee +
+                '}';
     }
 
     // Additional methods related to life insurance can be added here
